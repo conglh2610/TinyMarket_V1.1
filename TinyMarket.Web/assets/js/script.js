@@ -7,10 +7,10 @@
 	Customs Script
 	responsive cat-collapse for homepage
 	*/
-	
 
-	
-$(document).ready(function() {
+
+
+$(document).ready(function () {
 
 
 
@@ -26,19 +26,19 @@ $(document).ready(function() {
         navigation: false,
         pagination: true,
         items: 5,
-		itemsDesktopSmall: 	[979,3],
-		itemsTablet: [768, 3],
+        itemsDesktopSmall: [979, 3],
+        itemsTablet: [768, 3],
         itemsTabletSmall: [660, 2],
-		itemsMobile: [400,1]
+        itemsMobile: [400, 1]
 
 
     });
 
     // Custom Navigation Events
-    $("#nextItem").click(function() {
+    $("#nextItem").click(function () {
         owlitem.trigger('owl.next');
     })
-    $("#prevItem").click(function() {
+    $("#prevItem").click(function () {
         owlitem.trigger('owl.prev');
     })
 
@@ -53,19 +53,19 @@ $(document).ready(function() {
         navigation: false,
         pagination: false,
         items: 5,
-        itemsDesktopSmall: 	[979,3],
+        itemsDesktopSmall: [979, 3],
         itemsTablet: [768, 3],
         itemsTabletSmall: [660, 2],
-        itemsMobile: [400,1]
+        itemsMobile: [400, 1]
 
 
     });
 
     // Custom Navigation Events
-    $(".featured-list-row .next").click(function() {
+    $(".featured-list-row .next").click(function () {
         featuredListSlider.trigger('owl.next');
     })
-    $(".featured-list-row .prev").click(function() {
+    $(".featured-list-row .prev").click(function () {
         featuredListSlider.trigger('owl.prev');
     })
 
@@ -75,7 +75,7 @@ $(document).ready(function() {
 	====================================*/
 
     //  item listing ajaxTabs 
-    $('#ajaxTabs a').click(function(e) {
+    $('#ajaxTabs a').click(function (e) {
         e.preventDefault();
 
         var url = $(this).attr("data-url");
@@ -83,12 +83,12 @@ $(document).ready(function() {
         var pane = $(this);
 
         // ajax load from data-url
-        $(href).load(url, function(result) {
+        $(href).load(url, function (result) {
             pane.tab('show');
             // ajax pre-request callback function 
             $('.tooltipHere').tooltip('hide');
-            $('.grid-view').click(function(e) {
-                $(function() {
+            $('.grid-view').click(function (e) {
+                $(function () {
                     $('.item-list').matchHeight();
                     $.fn.matchHeight._apply('.item-list');
                 });
@@ -98,13 +98,13 @@ $(document).ready(function() {
     });
 
     // load first tab content
-    $('#allAds').load($('.active a').attr("data-url"), function(result) {
+    $('#allAds').load($('.active a').attr("data-url"), function (result) {
         $('.active a').tab('show');
         // ajax pre-request callback function 
         $('.tooltipHere').tooltip('hide');
 
-        $('.grid-view').click(function(e) {
-            $(function() {
+        $('.grid-view').click(function (e) {
+            $(function () {
                 $('.item-list').matchHeight();
                 $.fn.matchHeight._apply('.item-list');
             });
@@ -117,7 +117,7 @@ $(document).ready(function() {
 
     // List view , Grid view  and compact view
 
-    $('.list-view,#ajaxTabs li a').click(function(e) { //use a class, since your ID gets mangled
+    $('.list-view,#ajaxTabs li a').click(function (e) { //use a class, since your ID gets mangled
         e.preventDefault();
         $('.grid-view,.compact-view').removeClass("active");
         $('.list-view').addClass("active");
@@ -127,12 +127,12 @@ $(document).ready(function() {
         $('.item-list .add-desc-box').removeClass("col-sm-9");
         $('.item-list .add-desc-box').addClass("col-sm-7");
 
-        $(function() {
+        $(function () {
             $('.item-list').matchHeight('remove');
         });
     });
 
-    $('.grid-view').click(function(e) { //use a class, since your ID gets mangled
+    $('.grid-view').click(function (e) { //use a class, since your ID gets mangled
         e.preventDefault();
         $('.list-view,.compact-view').removeClass("active");
         $(this).addClass("active");
@@ -142,25 +142,25 @@ $(document).ready(function() {
         $('.item-list .add-desc-box').removeClass("col-sm-9");
         $('.item-list .add-desc-box').addClass("col-sm-7");
 
-        $(function() {
+        $(function () {
             $('.item-list').matchHeight();
             $.fn.matchHeight._apply('.item-list');
         });
 
     });
 
-    $(function() {
+    $(function () {
         $('.row-featured .f-category').matchHeight();
         $.fn.matchHeight._apply('.row-featured .f-category');
     });
 
-    $(function() {
+    $(function () {
         $('.has-equal-div > div').matchHeight();
         $.fn.matchHeight._apply('.row-featured .f-category');
     });
 
 
-    $('.compact-view').click(function(e) { //use a class, since your ID gets mangled
+    $('.compact-view').click(function (e) { //use a class, since your ID gets mangled
         e.preventDefault();
         $('.list-view,.grid-view').removeClass("active");
         $(this).addClass("active");
@@ -169,7 +169,7 @@ $(document).ready(function() {
         $('.item-list').removeClass("make-grid");
         $('.item-list .add-desc-box').toggleClass("col-sm-9 col-sm-7");
 
-        $(function() {
+        $(function () {
             $('.adds-wrapper .item-list').matchHeight('remove');
         });
 
@@ -208,43 +208,43 @@ $(document).ready(function() {
     /*=======================================================================================
 		cat-collapse Hmepage Category Responsive view  
 	========================================================================================*/
-	
-	
 
-    $(window).bind('resize load', function() {
-	
-	
-		
+
+
+    $(window).bind('resize load', function () {
+
+
+
         if ($(this).width() < 767) {
 
-        $('.cat-collapse').collapse('hide');
-		
-            $('.cat-collapse').on('shown.bs.collapse', function() {
+            $('.cat-collapse').collapse('hide');
+
+            $('.cat-collapse').on('shown.bs.collapse', function () {
                 $(this).prev('.cat-title').find('.icon-down-open-big').addClass("active-panel");
                 //$(this).prev('.cat-title').find('.icon-down-open-big').toggleClass('icon-down-open-big icon-up-open-big');
             });
 
-            $('.cat-collapse').on('hidden.bs.collapse', function() {
+            $('.cat-collapse').on('hidden.bs.collapse', function () {
                 $(this).prev('.cat-title').find('.icon-down-open-big').removeClass("active-panel");
             })
 
         } else {
-			
-		$('.cat-collapse').removeClass('out').addClass('in').css('height', 'auto');
-           
+
+            $('.cat-collapse').removeClass('out').addClass('in').css('height', 'auto');
+
         }
-		
+
     });
 
     // DEMO PREVIEW
 
-    $(".tbtn").click(function() {
+    $(".tbtn").click(function () {
         $('.themeControll').toggleClass('active')
     })
 
-	
+
 
 }); // end Ready
 
 
-	
+
